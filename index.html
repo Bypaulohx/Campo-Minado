@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campo Minado</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Campo Minado</h1>
+    
+    <label for="difficulty">Escolha a dificuldade:</label>
+    <select id="difficulty">
+        <option value="easy">Fácil (8x8)</option>
+        <option value="medium">Médio (10x10)</option>
+        <option value="hard">Difícil (12x12)</option>
+    </select>
+    <button onclick="startGame()">Iniciar Jogo</button>
+    
+    <div id="game-board"></div>
+    <p id="message"></p>
+
+    <script src="script.js"></script>
+</body>
+</html>
