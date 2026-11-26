@@ -27,6 +27,7 @@ O repositório já publica a branch `main` na raiz. O site fica disponível em `
 
 ```
 .
+├── assets/images/  ícone da página
 ├── css/
 │   ├── base.css    variáveis, reset e botões
 │   └── game.css    painel, tabuleiro, células e responsividade
