@@ -1,25 +1,87 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Campo Minado em JavaScript com três níveis de dificuldade, cronômetro e modo bandeira para celular.">
+    <meta name="theme-color" content="#0d0d0d">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/game.css">
     <title>Campo Minado</title>
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Campo Minado</h1>
-    
-    <label for="difficulty">Escolha a dificuldade:</label>
-    <select id="difficulty">
-        <option value="easy">Fácil (8x8)</option>
-        <option value="medium">Médio (10x10)</option>
-        <option value="hard">Difícil (12x12)</option>
-    </select>
-    <button onclick="startGame()">Iniciar Jogo</button>
-    
-    <div id="game-board"></div>
-    <p id="message"></p>
+    <a class="skip-link" href="#conteudo">Pular para o jogo</a>
 
-    <script src="script.js"></script>
+    <div class="page" id="conteudo">
+        <header class="game-header">
+            <div>
+                <p class="eyebrow">Clássico dos clássicos</p>
+                <h1>Campo Minado</h1>
+                <p class="intro">Ache todas as células seguras sem tocar nas minas. A primeira jogada sempre abre uma área livre.</p>
+            </div>
+            <button type="button" class="button button-outline" id="restart">
+                <i class="bi bi-arrow-clockwise" aria-hidden="true"></i>
+                Novo jogo
+            </button>
+        </header>
+
+        <main class="game-card">
+            <div class="settings">
+                <div class="difficulty-field">
+                    <label for="difficulty">Dificuldade</label>
+                    <select id="difficulty">
+                        <option value="easy">Fácil — 8×8, 10 minas</option>
+                        <option value="medium">Médio — 10×10, 20 minas</option>
+                        <option value="hard">Difícil — 12×12, 30 minas</option>
+                    </select>
+                </div>
+                <button type="button" class="button button-primary" id="start">
+                    <i class="bi bi-play-fill" aria-hidden="true"></i>
+                    Iniciar jogo
+                </button>
+                <button type="button" class="button button-ghost" id="flag-mode" aria-pressed="false">
+                    <i class="bi bi-flag" aria-hidden="true"></i>
+                    <span id="flag-mode-label">Marcar minas</span>
+                </button>
+            </div>
+
+            <section class="hud" aria-label="Status da partida">
+                <div class="hud-item">
+                    <span>Minas restantes</span>
+                    <strong id="mines-left">10</strong>
+                </div>
+                <div class="hud-item">
+                    <span>Tempo</span>
+                    <strong id="timer">00:00</strong>
+                </div>
+                <div class="hud-item">
+                    <span>Jogadas</span>
+                    <strong id="moves">0</strong>
+                </div>
+            </section>
+
+            <p class="status" id="message" role="status" aria-live="polite"></p>
+
+            <div class="board-wrap">
+                <div class="board" id="game-board" role="grid" aria-label="Tabuleiro do campo minado"></div>
+            </div>
+
+            <div class="legend">
+                <span><i class="bi bi-flag-fill" aria-hidden="true"></i> Clique direito ou ative “Marcar minas” no celular</span>
+                <span><i class="bi bi-lightning-charge-fill" aria-hidden="true"></i> A primeira jogada nunca é mina</span>
+            </div>
+        </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+    <script src="js/data.js" defer></script>
+    <script src="js/game.js" defer></script>
+    <script src="js/ui.js" defer></script>
+    <script src="js/app.js" defer></script>
 </body>
 </html>

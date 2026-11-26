@@ -1,0 +1,238 @@
+.page {
+    width: min(100% - 32px, 900px);
+    margin-inline: auto;
+    padding-block: 48px 64px;
+}
+
+.game-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.game-header h1 {
+    font-size: clamp(30px, 5vw, 44px);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+}
+
+.intro {
+    max-width: 520px;
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.game-card {
+    padding: clamp(20px, 4vw, 36px);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: var(--surface);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+.settings {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 12px;
+}
+
+.difficulty-field {
+    display: flex;
+    min-width: 230px;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.difficulty-field label {
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.difficulty-field select {
+    height: 42px;
+    padding: 0 36px 0 14px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: var(--surface-raised);
+    color: var(--text);
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.difficulty-field select:focus {
+    border-color: var(--purple);
+    outline: none;
+}
+
+.hud {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.hud-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 16px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface-raised);
+}
+
+.hud-item span {
+    color: var(--muted);
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.hud-item strong {
+    color: var(--green);
+    font-size: 18px;
+    font-variant-numeric: tabular-nums;
+}
+
+.status {
+    min-height: 24px;
+    margin: 18px 0 4px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.status.is-win {
+    color: var(--green);
+}
+
+.status.is-lose {
+    color: var(--danger);
+}
+
+.board-wrap {
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
+    padding: 12px 0;
+}
+
+.board {
+    --grid-size: 8;
+    --cell-size: clamp(21px, 5.6vw, 34px);
+    display: grid;
+    width: max-content;
+    grid-template-columns: repeat(var(--grid-size), var(--cell-size));
+    grid-template-rows: repeat(var(--grid-size), var(--cell-size));
+    gap: 3px;
+    padding: 8px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #101013;
+}
+
+.cell {
+    display: grid;
+    place-items: center;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    padding: 0;
+    border: 0;
+    border-radius: 5px;
+    background: #2c2c33;
+    color: var(--text);
+    font-size: clamp(12px, 2.4vw, 16px);
+    font-weight: 800;
+    line-height: 1;
+    transition: background-color 0.15s ease;
+}
+
+.cell:hover:not(.revealed) {
+    background: #3a3a44;
+}
+
+.cell.revealed {
+    background: #1a1a1f;
+    cursor: default;
+}
+
+.cell.flag {
+    color: var(--warning);
+}
+
+.cell.mine {
+    background: rgba(224, 80, 93, 0.9);
+    color: #fff;
+}
+
+.cell.wrong {
+    background: rgba(224, 80, 93, 0.35);
+    color: var(--danger);
+    text-decoration: line-through;
+}
+
+.cell.n1 { color: #6ea8ff; }
+.cell.n2 { color: var(--green); }
+.cell.n3 { color: #ff7b72; }
+.cell.n4 { color: #b083f0; }
+.cell.n5 { color: #ffb86b; }
+.cell.n6 { color: #4dd0e1; }
+.cell.n7 { color: #e1e1e6; }
+.cell.n8 { color: #a8a8b3; }
+
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 24px;
+    margin-top: 14px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.legend i {
+    margin-right: 5px;
+    color: var(--purple);
+}
+
+@media (max-width: 560px) {
+    .game-header {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .difficulty-field {
+        width: 100%;
+        min-width: 0;
+        flex: 1;
+    }
+
+    .settings .button {
+        flex: 1;
+    }
+
+    .hud {
+        gap: 6px;
+    }
+
+    .hud-item {
+        flex-direction: column;
+        gap: 2px;
+        padding: 10px 6px;
+        text-align: center;
+    }
+
+    .board {
+        gap: 2px;
+        padding: 6px;
+    }
+}
