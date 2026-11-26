@@ -27,7 +27,7 @@ O repositório já publica a branch `main` na raiz. O site fica disponível em `
 
 ```
 .
-├── assets/images/  ícone da página
+├── assets/images/  ícone em SVG usado como base
 ├── css/
 │   ├── base.css    variáveis, reset e botões
 │   └── game.css    painel, tabuleiro, células e responsividade
@@ -36,6 +36,7 @@ O repositório já publica a branch `main` na raiz. O site fica disponível em `
 │   ├── game.js     regras do jogo e estado do tabuleiro
 │   ├── ui.js       renderização do tabuleiro e do painel
 │   └── app.js      eventos, cronômetro e controle da partida
+├── favicon.ico
 ├── index.html
 └── README.md
 ```
