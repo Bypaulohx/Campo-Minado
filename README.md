@@ -43,7 +43,7 @@ O repositório já publica a branch `main` na raiz. O site fica disponível em `
 
 ## Tecnologias
 
-HTML semântico, CSS com variáveis e media queries, JavaScript com classes e DOM API. Ícones do Bootstrap Icons e fonte Inter do Google Fonts.
+HTML semântico, CSS com variáveis e media queries, JavaScript com classes e DOM API. Identidade visual de terminal arcade, com as fontes Space Grotesk e JetBrains Mono do Google Fonts e ícones do Bootstrap Icons.
 
 Projeto feito para estudo.
 
